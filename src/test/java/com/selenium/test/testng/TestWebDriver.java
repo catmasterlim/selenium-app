@@ -9,7 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;;import java.time.Duration;
+import org.openqa.selenium.support.ui.WebDriverWait;;import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
 import java.util.function.Function;
 
 
@@ -44,10 +46,34 @@ public class TestWebDriver {
             driver.get("http://tbell.co.kr/");
         }
         By by = By.cssSelector("a#slider-9-slide-12-layer-3.rs-layer.rev-btn");
-        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(60));
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofMinutes(5));
         w.until(ExpectedConditions.presenceOfElementLocated(by) );
         WebElement element = driver.findElement(by);
         element.click();
+    }
+
+    @Test
+    public void paramterTest() throws Throwable {
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions opt=new ChromeOptions();
+        opt.setExperimentalOption("debuggerAddress","localhost:9222 ");
+        ChromeDriver driver = new ChromeDriver(opt);
+
+        driver.manage().window().maximize();
+
+
+        String url=driver.getCurrentUrl();
+        URL aURL = new URL(url);
+        System.out.println("url = " + url);
+        System.out.println("protocol = " + aURL.getProtocol());
+        System.out.println("authority = " + aURL.getAuthority());
+        System.out.println("host = " + aURL.getHost());
+        System.out.println("port = " + aURL.getPort());
+        System.out.println("path = " + aURL.getPath());
+        System.out.println("query = " + aURL.getQuery());
+        System.out.println("filename = " + aURL.getFile());
+        System.out.println("ref = " + aURL.getRef());
 
     }
 }
