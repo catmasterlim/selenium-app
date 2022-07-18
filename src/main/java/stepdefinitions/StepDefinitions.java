@@ -120,10 +120,10 @@ public class StepDefinitions {
 
     @When("alert창 확인 버튼 클릭")
     public void alert창확인버튼클릭() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5);
-        if(ExpectedConditions.alertIsPresent().apply(driver)!=null){
-            driver.switchTo().alert().accept();
-        }
+//        TimeUnit.SECONDS.sleep(5);
+//        if(ExpectedConditions.alertIsPresent().apply(driver)!=null){
+//            driver.switchTo().alert().accept();
+//        }
     }
 
     @Then("삭제되었는지 확인")
