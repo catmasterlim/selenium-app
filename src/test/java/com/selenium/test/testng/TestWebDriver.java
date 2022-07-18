@@ -15,6 +15,11 @@ import java.util.function.Function;
 
 public class TestWebDriver {
 
+    /**
+     * chrome 바로가기 생성 후 디버그 모드로 실행
+     * "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir=C:\Works\selenum\ChromeProfile
+     */
+
     @Test
     public void test()
     {
