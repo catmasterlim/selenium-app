@@ -23,14 +23,17 @@ public class TestWebDriver {
      */
 
     @Test
-    public void test()
-    {
+    public void test() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
 
         driver.get("https://mvnrepository.com/artifact/com.codeborne/selenide/6.6.6");
         WebElement element = driver.findElement(By.cssSelector("#gradle-short-li > a"));
         element.click();
+
+
+        driver.close();
+
     }
 
     @Test
