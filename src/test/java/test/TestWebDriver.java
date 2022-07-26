@@ -79,4 +79,26 @@ public class TestWebDriver {
         System.out.println("ref = " + aURL.getRef());
 
     }
+
+    @Test
+    public void loginTest(){
+
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
+
+        driver.get("https://signinssl.gmarket.co.kr/login/login?url=https://www.gmarket.co.kr/");
+
+        String _id = "test";
+        String _pass = "testpass";
+
+        By selector_id = By.cssSelector("#id");
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofMinutes(5));
+        w.until(ExpectedConditions.presenceOfElementLocated(selector_id) );
+
+        driver.findElement(selector_id).sendKeys(_id);
+
+        By selector_pwd = By.cssSelector("#pwd");
+        driver.findElement(selector_pwd).sendKeys(_pass);
+        driver.findElement(selector_pwd).submit();
+    }
 }

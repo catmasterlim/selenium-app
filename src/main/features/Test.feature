@@ -13,3 +13,8 @@ Feature: Test
     When 삭제 버튼 클릭
     When alert창 확인 버튼 클릭
     Then 삭제되었는지 확인
+
+
+  Scenario: Gmarket 출석체크
+    Given Gmarket 로그인 "dolikelove" "Qwer112233"
+    When Gmarket 출석체크
