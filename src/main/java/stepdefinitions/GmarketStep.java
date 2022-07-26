@@ -36,7 +36,7 @@ public class GmarketStep {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions opt=new ChromeOptions();
-        opt.setExperimentalOption("debuggerAddress","pms.tbell.kro.kr:9222 ");
+        opt.setExperimentalOption("debuggerAddress","localhost:9222 ");
         driver = new ChromeDriver(opt);
 
         driver.get("https://signinssl.gmarket.co.kr/login/login?url=https://www.gmarket.co.kr/");
